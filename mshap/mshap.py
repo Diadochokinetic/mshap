@@ -265,11 +265,9 @@ class Mshap:
             shap_2 = pd.DataFrame(shap_2)
 
         # Check the column types of shap_1 and shap_2
-        shap_1_class = shap_1.dtypes
-        shap_2_class = shap_2.dtypes
-        if not all(
-            np.isin(shap_1_class, [np.dtype("int"), np.dtype("float")])
-        ) or not all(np.isin(shap_2_class, [np.dtype("int"), np.dtype("float")])):
+        if not np.issubdtype(shap_1.values.dtype, np.number) or not np.issubdtype(
+            shap_2.values.dtype, np.number
+        ):
             raise ValueError(
                 "`shap1` and `shap2` must be only composed of numerical values"
             )
