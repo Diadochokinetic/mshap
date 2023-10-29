@@ -10,6 +10,8 @@ status](https://travis-ci.com/srmatth/mshap.svg?branch=main)](https://travis-ci.
 [![codecov](https://codecov.io/gh/srmatth/mshap/branch/main/graph/badge.svg?token=80MEJIXXX9)](https://codecov.io/gh/srmatth/mshap)
 <!-- badges: end -->
 
+This is a [WIP] Python port of [srmatth/mshap](https://github.com/srmatth/mshap)
+
 The goal of mshap is to allow SHAP values for two-part models to be
 easily computed. A two-part model is one where the output from one model
 is multiplied by the output from another model. These are often used in
