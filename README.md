@@ -5,37 +5,29 @@
 
 <!-- badges: start -->
 
-[![Travis build
-status](https://travis-ci.com/srmatth/mshap.svg?branch=main)](https://travis-ci.com/srmatth/mshap)
-[![codecov](https://codecov.io/gh/srmatth/mshap/branch/main/graph/badge.svg?token=80MEJIXXX9)](https://codecov.io/gh/srmatth/mshap)
+[![codecov](https://codecov.io/gh/srmatth/mshap/branch/main/graph/badge.svg?token=80MEJIXXX9)](https://codecov.io/gh/Diadochokinetic/mshap)
 <!-- badges: end -->
 
-This is a [WIP] Python port of [srmatth/mshap](https://github.com/srmatth/mshap)
+This is a Python port of [srmatth/mshap](https://github.com/srmatth/mshap)
 
 The goal of mshap is to allow SHAP values for two-part models to be
 easily computed. A two-part model is one where the output from one model
 is multiplied by the output from another model. These are often used in
 the Actuarial industry, but have other use cases as well.
 
-This package is designed in `R` with the example use cases having models
-and shap values calculated in python. It is the hope that the
-interoperability between the two languages continues to grow, and the
-example here makes a strong case for the ease of transitioning between
-the two.
 
 ## Installation
 
-Install mSHAP from CRAN with the following code:
+[WIP] Install mSHAP from pypi with the following code:
 
-``` r
-install.packages("mshap")
+```
+pip install mshap
 ```
 
 Or the development version from github with:
 
-``` r
-# install.packages("devtools")
-devtools::install_github("srmatth/mshap")
+```
+pip install git+https://github.com/Diadochokinetic/mshap
 ```
 
 ## Basic Use
