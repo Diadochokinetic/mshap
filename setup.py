@@ -14,6 +14,7 @@ setuptools.setup(
     description="A Python port of R package mshap to interpret combined model outputs.",
     python_requires=">=3.10",
     long_description=long_description,
+    long_description_content_type="text/markdown",
     packages=setuptools.find_packages(),
     install_requires=requirements,
 )
