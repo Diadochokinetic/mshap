@@ -4,8 +4,7 @@
 # mshap
 
 <!-- badges: start -->
-
-[![codecov](https://codecov.io/gh/srmatth/mshap/branch/main/graph/badge.svg?token=80MEJIXXX9)](https://codecov.io/gh/Diadochokinetic/mshap)
+[![codecov](https://codecov.io/gh/Diadochokinetic/mshap/graph/badge.svg?token=I8WXLLYC4I)](https://codecov.io/gh/Diadochokinetic/mshap)
 <!-- badges: end -->
 
 This is a Python port of [srmatth/mshap](https://github.com/srmatth/mshap)
