@@ -281,7 +281,7 @@ class Mshap:
                     "`ex1` has a length greater than 1, only using first element",
                     UserWarning,
                 )
-                ex_1 = ex_1[0]
+            ex_1 = ex_1[0]
 
         if isinstance(ex_2, (list, np.ndarray, pd.Series)):
             if len(ex_2) > 1:
@@ -289,7 +289,7 @@ class Mshap:
                     "`ex2` has a length greater than 1, only using first element",
                     UserWarning,
                 )
-                ex_2 = ex_2[0]
+            ex_2 = ex_2[0]
 
         numerical_dtypes = (
             int,
