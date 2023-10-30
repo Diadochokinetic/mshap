@@ -285,7 +285,26 @@ class Mshap:
                 "`ex2` has a length greater than 1, only using first element",
                 UserWarning,
             )
-        if not isinstance(ex_1, (int, float)) or not isinstance(ex_2, (int, float)):
+
+        numerical_dtypes = (
+            int,
+            float,
+            np.int8,
+            np.int16,
+            np.int32,
+            np.int64,
+            np.uint8,
+            np.uint16,
+            np.uint32,
+            np.uint64,
+            np.float16,
+            np.float32,
+            np.float64,
+        )
+
+        if not isinstance(ex_1, numerical_dtypes) or not isinstance(
+            ex_2, numerical_dtypes
+        ):
             raise ValueError("`ex_1` and `ex_2` must be numeric")
 
         if shap_1.shape[0] != shap_2.shape[0]:
