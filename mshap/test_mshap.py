@@ -187,6 +187,15 @@ def test_numerical_expected_values(ex1, ex2):
     _ = m.shap_values()
 
 
+@pytest.mark.parametrize(
+    "ex1, ex2",
+    [(np.array([0]).astype(i), np.array([0]).astype(i)) for i in numerical_dtypes],
+)
+def test_numerical_expected_values_list_like(ex1, ex2):
+    m = Mshap(shap1, shap2[0], ex1, ex2)
+    _ = m.shap_values()
+
+
 @pytest.mark.parametrize("ex", [ex1, ex2])
 def test_wrong_dtype_expected_values(ex):
     error_message = re.escape("`ex_1` and `ex_2` must be numeric")
