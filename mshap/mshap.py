@@ -275,18 +275,21 @@ class Mshap:
             )
 
         # Check the type of the input on the expected values
-        if isinstance(ex_1, np.ndarray):
-            ex_1 = ex_1[0]
-            warnings.warn(
-                "`ex1` has a length greater than 1, only using first element",
-                UserWarning,
-            )
-        if isinstance(ex_2, np.ndarray):
-            ex_2 = ex_2[0]
-            warnings.warn(
-                "`ex2` has a length greater than 1, only using first element",
-                UserWarning,
-            )
+        if isinstance(ex_1, (list, np.ndarray, pd.Series)):
+            if len(ex_1) > 1:
+                warnings.warn(
+                    "`ex1` has a length greater than 1, only using first element",
+                    UserWarning,
+                )
+                ex_1 = ex_1[0]
+
+        if isinstance(ex_2, (list, np.ndarray, pd.Series)):
+            if len(ex_2) > 1:
+                warnings.warn(
+                    "`ex2` has a length greater than 1, only using first element",
+                    UserWarning,
+                )
+                ex_2 = ex_2[0]
 
         numerical_dtypes = (
             int,
