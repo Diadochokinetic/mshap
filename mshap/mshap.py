@@ -6,8 +6,8 @@ import warnings
 
 class Mshap:
     """
-    Class for computing the modified SHAP values for two sets of SHAP values and
-    examples.
+    Class for computing the multiplied SHAP values for two sets of SHAP values and
+    expected values.
 
     Parameters
     ----------
@@ -42,17 +42,13 @@ class Mshap:
     Methods
     -------
     shap_values()
-        Computes the modified SHAP values for the two sets of SHAP values and examples.
-
-    Raises
-    ------
-    ValueError
-        If `shap_1` or `shap_2` is a list of matrices.
+        Computes the multiplied SHAP values for two sets of SHAP values and
+        expected values.
 
     Notes
     -----
-    This implementation is based on the paper "A Unified Approach to Interpreting Model
-    Predictions" by Lundberg and Lee (2017).
+    This implementation is based on the paper "mSHAP: SHAP Values for Two-Part Models"
+    by Matthews and Hartman (2021).
 
     Examples
     --------
@@ -96,10 +92,15 @@ class Mshap:
         """
         Computes the modified SHAP values for the two sets of SHAP values and examples.
 
+        Raises
+        ------
+        ValueError
+            If `shap_1` and `shap_2` is a list of matrices.
+
         Returns
         -------
         dict
-            A dictionary containing the modified SHAP values and the expected value of
+            A dictionary containing the multiplied SHAP values and the expected value of
             the product of the two sets of examples.
         """
         if isinstance(self.shap_1, list) and isinstance(self.shap_2, list):
@@ -149,7 +150,8 @@ class Mshap:
         self, shap_1, shap_2, ex_1, ex_2, shap_1_names=None, shap_2_names=None
     ):
         """
-        Computes the modified SHAP values for two sets of SHAP values and examples.
+        Computes the multiplied SHAP values for two sets of SHAP values and expected
+        values.
 
         Parameters
         ----------
@@ -169,7 +171,7 @@ class Mshap:
         Returns
         -------
         dict
-            A dictionary containing the modified SHAP values and the expected value of
+            A dictionary containing the multiplied SHAP values and the expected value of
             the product of the two sets of examples.
         """
         # Error Checking
