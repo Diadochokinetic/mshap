@@ -158,8 +158,7 @@ shap.summary_plot(final_shap_explanation, X)
 ```
 
 
-    
-![png](README_files/README_15_0.png)
+![](https://raw.githubusercontent.com/Diadochokinetic/mshap/master/README_files/README_15_0.png "SHAP Summary Plot")    
     
 
 
