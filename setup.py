@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="mshap",
-    version="0.2.1",
+    version="0.2.2",
     author="Diadochokinetic",
     author_email="diadochokinetic@googlemail.com",
     description="A Python port of R package mshap to interpret combined model outputs.",
