@@ -142,8 +142,34 @@ def test_only_both_names():
         _ = m.shap_values()
 
 
+numerical_dtypes = [
+    int,
+    float,
+    np.int8,
+    np.int16,
+    np.int32,
+    np.int64,
+    np.uint8,
+    np.uint16,
+    np.uint32,
+    np.uint64,
+    np.float16,
+    np.float32,
+    np.float64,
+]
+
+
+@pytest.mark.parametrize(
+    "shap1, shap2",
+    [(shap1.values.astype(i), shap2[0].values.astype(i)) for i in numerical_dtypes],
+)
+def test_numerical_shap_values(shap1, shap2):
+    m = Mshap(shap1, shap2, ex1, ex2[0])
+    _ = m.shap_values()
+
+
 @pytest.mark.parametrize("shap_values", [shap1, shap2[0]])
-def test_only_numerical_shap_values(shap_values):
+def test_wrong_dtype_shap_values(shap_values):
     error_message = re.escape(
         "`shap1` and `shap2` must be only composed of numerical values"
     )
@@ -154,8 +180,14 @@ def test_only_numerical_shap_values(shap_values):
         _ = m.shap_values()
 
 
+@pytest.mark.parametrize("ex1, ex2", [(i(ex1), i(ex2[0])) for i in numerical_dtypes])
+def test_numerical_expected_values(ex1, ex2):
+    m = Mshap(shap1, shap2[0], ex1, ex2)
+    _ = m.shap_values()
+
+
 @pytest.mark.parametrize("ex", [ex1, ex2])
-def test_only_numerical_expected_values(ex):
+def test_wrong_dtype_expected_values(ex):
     error_message = re.escape("`ex_1` and `ex_2` must be numeric")
     with pytest.raises(ValueError, match=error_message):
         ex_wrong_dtype = ex.copy()
