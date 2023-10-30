@@ -86,14 +86,15 @@ def test_matrices():
     assert res["expected_value"] == real_ex1
 
 
-def test_warnings():
+@pytest.mark.parametrize("ex_list_like", [[0, 1], np.array([0, 1]), pd.Series([0, 1])])
+def test_warnings(ex_list_like):
     warning_message = "`ex2` has a length greater than 1, only using first element"
     with pytest.warns(UserWarning, match=warning_message):
         m = Mshap(
             shap1,
             shap2[0],
             ex1,
-            ex2,
+            ex_list_like,
             shap_1_names=["Age", "Income", "Married", "Sex"],
             shap_2_names=["Age", "Income", "Children", "American"],
         )
@@ -103,7 +104,7 @@ def test_warnings():
         m = Mshap(
             shap1,
             shap2[0],
-            ex2,
+            ex_list_like,
             ex1,
             shap_1_names=["Age", "Income", "Married", "Sex"],
             shap_2_names=["Age", "Income", "Children", "American"],
