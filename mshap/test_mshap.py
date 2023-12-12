@@ -65,7 +65,20 @@ def test_multi_case():
     assert len(res2) == 3
 
 
-def test_different_names():
+def test_different_names_basic_case():
+    m = Mshap(
+        shap1,
+        shap2[0],
+        ex1,
+        ex2[0],
+        shap_1_names=["Age", "Income", "Married", "Sex"],
+        shap_2_names=["Age", "Income", "Children", "American"],
+    )
+    res = m.shap_values()
+    assert res["shap_vals"].shape[1] == 6
+
+
+def test_different_names_multi_case():
     m = Mshap(
         shap1,
         shap2,
@@ -75,7 +88,8 @@ def test_different_names():
         shap_2_names=["Age", "Income", "Children", "American"],
     )
     res = m.shap_values()
-    assert res[1]["shap_vals"].shape[1] == 6
+    for i in range(len(shap2)):
+        assert res[i]["shap_vals"].shape[1] == 6
 
 
 def test_matrices():
