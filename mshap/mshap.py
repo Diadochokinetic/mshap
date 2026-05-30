@@ -221,7 +221,7 @@ class Mshap:
         Validate the SHAP values passed to the function.
 
         A simple function that throws errors when certain conditions are not met for
-        the SHAP values passed to the mSHAP function.
+        the SHAP values passed to the mSHAP function. E.g. dimensions and data types.
 
         Parameters
         ----------
